@@ -1,0 +1,64 @@
+{
+  "parts": [
+    "Main Board",
+    "Power Supply Board",
+    "T-Con Board",
+    "LED Backlight Strip",
+    "IR Sensor Board",
+    "Wi-Fi Module",
+    "Speaker Set",
+    "Remote Control",
+    "TV Wall Mount Bracket",
+    "HDMI Cable",
+    "AC Capacitor",
+    "AC Fan Motor",
+    "Refrigerator Thermostat",
+    "Compressor Relay",
+    "Washing Machine Drain Pump",
+    "Washing Machine Inlet Valve",
+    "Air Cooler Pump",
+    "Water Purifier Filter Set"
+  ],
+  "brands": [
+    "Samsung",
+    "LG",
+    "Sony",
+    "Xiaomi",
+    "Panasonic",
+    "Haier",
+    "Whirlpool",
+    "Voltas",
+    "Blue Star",
+    "Generic / Other"
+  ],
+  "brackets": [
+    "Service Center",
+    "Company Bracket",
+    "Customer Bracket",
+    "Table Top",
+    "Not Applicable"
+  ],
+  "employees": [
+    "Aarav Patil",
+    "Neha Kulkarni",
+    "Rohan Deshmukh",
+    "Sana Khan",
+    "Vikram Jadhav",
+    "Direct Customer"
+  ],
+  "statuses": [
+    "Installation Done",
+    "Repair Done",
+    "Revisit Required",
+    "Pending",
+    "Cancelled"
+  ],
+  "products": [
+    "Television",
+    "Air Conditioner",
+    "Refrigerator",
+    "Washing Machine",
+    "Air Cooler",
+    "Water Purifier"
+  ]
+}

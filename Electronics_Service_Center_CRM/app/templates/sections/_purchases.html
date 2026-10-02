@@ -1,0 +1,21 @@
+<div class="section" id="sec-purchases">
+        <div class="section-head" style="justify-content:flex-end;">
+          <button class="btn accent" onclick="openPurchaseForm()">+ New Entry</button>
+        </div>
+        <div class="filters">
+          <div class="field"><label>From</label><input type="date" id="purFrom"></div>
+          <div class="field"><label>To</label><input type="date" id="purTo"></div>
+          <div class="field"><label>Supplier</label><select id="purSupplierFilter"></select></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>Ledger entries</h3><span class="tag" id="purchasesCount">0</span></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Log #</th><th>Date</th><th>Supplier/Brand</th><th>Invoice #</th><th>Material</th><th class="num">Qty</th><th class="num">Rate</th><th class="num">Sales Rate</th><th class="num">Debit (Purchase)</th><th class="num">Credit (Return)</th><th>Approval</th><th class="center">Actions</th></tr></thead>
+              <tbody id="purchasesTbody"></tbody>
+            </table>
+          </div>
+          <div id="purchasesPagination" style="display:none;justify-content:space-between;align-items:center;padding:10px 18px;border-top:1px solid #edf0f2;"></div>
+          <div style="padding:10px 18px;border-top:1px solid #edf0f2;font-size:12px;color:var(--text-dim);" id="purchasesSummary"></div>
+        </div>
+      </div>

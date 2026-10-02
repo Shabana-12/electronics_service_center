@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in — Electronics Service Center</title>
+<link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='img/favicon.svg') }}">
+<link rel="stylesheet" href="{{ asset_url('css/style.css') }}">
+</head>
+<body data-page="login">
+<div id="loginScreen">
+  <div class="login-shell">
+    <section class="login-intro" aria-label="Application overview">
+      <div class="login-intro-brand"><div class="brand-mark large" aria-hidden="true"><span>ES</span></div><span>Electronics Service Center</span></div>
+      <h1>Service operations,<br>in one workspace.</h1>
+      <p>A lightweight CRM for service tickets, parts movement, approvals, cash flow and operational reporting.</p>
+      <div class="login-feature-grid">
+        <div><b>Ticket lifecycle</b><span>Track jobs from intake to completion.</span></div>
+        <div><b>Inventory control</b><span>Manage purchases and parts consumption.</span></div>
+        <div><b>Role-based access</b><span>Separate Admin and Staff responsibilities.</span></div>
+        <div><b>Audit & reports</b><span>Keep operational changes traceable.</span></div>
+      </div>
+    </section>
+    <section class="login-card">
+      <div class="login-brand"><div class="brand-mark" aria-hidden="true"><span>ES</span></div><span>Operations CRM</span></div>
+      <h2>Welcome back</h2>
+      <div class="login-sub">Sign in with your assigned account.</div>
+      <div class="login-err" id="loginErr"></div>
+      <form id="loginForm">
+        <div class="field"><label>Username</label><input id="loginUser" autocomplete="username" required></div>
+        <div class="field">
+          <label>Password</label>
+          <div class="password-field">
+            <input id="loginPass" type="password" autocomplete="current-password" required>
+            <button type="button" class="password-toggle" id="passwordToggle" aria-label="Show password">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+        <button class="btn-primary" type="submit">Sign in</button>
+      </form>
+      <div class="login-security-note">Protected by JWT authentication and server-side role checks.</div>
+    </section>
+  </div>
+</div>
+<script src="{{ asset_url('js/api.js') }}"></script>
+<script src="{{ asset_url('js/common.js') }}"></script>
+<script src="{{ asset_url('js/init.js') }}"></script>
+</body>
+</html>

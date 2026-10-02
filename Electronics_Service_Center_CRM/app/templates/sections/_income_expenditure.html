@@ -1,0 +1,35 @@
+<div class="section" id="sec-income-expenditure">
+  <div class="section-head" style="justify-content:space-between;flex-wrap:wrap;gap:10px;">
+  </div>
+
+  <div class="card staff-only" style="margin-bottom:18px;">
+    <div class="card-pad" style="color:var(--text-dim);">
+      This report requires Admin access.
+    </div>
+  </div>
+
+  <div class="admin-only">
+    <div class="card" style="margin-bottom:18px;">
+      <div class="card-pad">
+        <div class="filters">
+          <div class="field"><label>From</label><input type="date" id="iesFrom"></div>
+          <div class="field"><label>To</label><input type="date" id="iesTo"></div>
+          <button class="btn accent" onclick="renderIncomeExpenditure()">Generate</button>
+        </div>
+        <p class="hint" style="margin-top:6px;">Based on Approved Cash Book entries only, for the dates chosen above — matches the same rule the Dashboard's Cash Book summary already uses.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>Preview</h3>
+        <div class="rowbtns">
+          <button class="btn sm" onclick="exportIncomeExpenditureXLSX()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Export (.xlsx)</button>
+          <button class="btn solid" onclick="printIncomeExpenditure()">🖨 Print / Save as PDF</button>
+        </div>
+      </div>
+      <div class="card-pad" id="iesPreviewArea"></div>
+    </div>
+    <div id="incexpPrintArea" style="display:none;"></div>
+  </div>
+</div>

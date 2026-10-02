@@ -1,0 +1,87 @@
+<div class="section" id="sec-reports">
+        <div class="card" style="margin-bottom:18px;">
+          <div class="card-head"><h3>Export data</h3></div>
+          <div class="card-pad">
+            <div class="filters" style="margin-bottom:14px;">
+              <div class="field"><label>Dataset</label>
+                <select id="repDataset">
+                  <option value="calls">Call Data</option>
+                  <option value="purchases">Purchase Ledger</option>
+                  <option value="inventory">Inventory / Sales &amp; Consumption Ledger</option>
+                  <option value="cashbook" class="admin-only-option">Daily Cash Book</option>
+                </select>
+              </div>
+              <div class="field"><label>From</label><input type="date" id="repFrom"></div>
+              <div class="field"><label>To</label><input type="date" id="repTo"></div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <button class="btn solid" onclick="downloadXLSX(document.getElementById('repDataset').value)">⬇ Download this dataset (.xlsx)</button>
+              <button class="btn" onclick="downloadCSV()">⬇ Download as CSV</button>
+              <button class="btn admin-only" onclick="downloadXLSX('all')">⬇ Download all 4 (Call Data + Purchase + Inventory + Cash Book) (.xlsx)</button>
+            </div>
+          </div>
+          <div class="card-head" style="border-top:1px solid #edf0f2;"><h3>Preview</h3><span class="tag" id="reportCount">0 records</span></div>
+          <div class="table-wrap"><table><thead id="reportThead"></thead><tbody id="reportTbody"></tbody></table></div>
+        </div>
+
+        <div class="card" style="margin-bottom:18px;">
+          <div class="card-head"><h3>Technician monthly statement</h3><span class="tag">Shareable with the technician</span></div>
+          <div class="card-pad">
+            <p style="color:var(--text-dim);font-size:12.5px;margin:0 0 14px;">
+              Generates a statement for one technician: the jobs they completed plus every part debited or credited to them in the period, with an outstanding-balance summary and totals — previewed below before you print or export it.
+            </p>
+            <div class="filters" style="margin-bottom:0;">
+              <div class="field"><label>Technician</label><select id="stmtTechnician"></select></div>
+              <div class="field"><label>From</label><input type="date" id="stmtFrom"></div>
+              <div class="field"><label>To</label><input type="date" id="stmtTo"></div>
+              <div class="field"><label>&nbsp;</label><button class="btn accent" onclick="openTechnicianStatement()">Preview statement</button></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>Preview</h3>
+            <div style="display:flex;gap:8px;">
+              <button class="btn" onclick="exportStatementXLSX()">⬇ Export (.xlsx)</button>
+              <button class="btn solid" onclick="printStatement()">🖨 Print / Save as PDF</button>
+            </div>
+          </div>
+          <div id="statementPrintArea" style="padding:0;">
+            <div style="padding:48px 20px;text-align:center;color:var(--text-dim);">Choose a technician above and click "Preview statement" to see it here.</div>
+          </div>
+        </div>
+
+        <div class="card admin-only" style="margin-top:18px;">
+          <div class="card-head"><h3>Change Log</h3><span class="tag">Admin only</span></div>
+          <div class="card-pad">
+            <p style="color:var(--text-dim);font-size:12.5px;margin:0 0 14px;">
+              Every create, edit, delete, and approval across Call Data, Purchases, Inventory, and Cash Book — who did it, when, and exactly what changed.
+            </p>
+            <div class="filters" style="margin-bottom:0;">
+              <div class="field"><label>Module</label><select id="auditTableFilter">
+                <option value="">All</option>
+                <option value="calls">Call Data</option>
+                <option value="purchases">Purchase Ledger</option>
+                <option value="inventory">Inventory / Sales</option>
+                <option value="cashbook">Daily Cash Book</option>
+              </select></div>
+              <div class="field"><label>Action</label><select id="auditActionFilter">
+                <option value="">All</option>
+                <option value="create">Created</option>
+                <option value="update">Edited</option>
+                <option value="delete">Deleted</option>
+                <option value="approve">Approved</option>
+              </select></div>
+              <div class="field"><label>From</label><input type="date" id="auditFrom"></div>
+              <div class="field"><label>To</label><input type="date" id="auditTo"></div>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Date &amp; time</th><th>User</th><th>Module</th><th>Record</th><th>Action</th><th>What changed</th></tr></thead>
+              <tbody id="auditLogTbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>

@@ -1,0 +1,56 @@
+<div class="section" id="sec-settings">
+        <div class="card" style="margin-bottom:14px;">
+          <div class="card-head"><h3>SLA target</h3></div>
+          <div class="card-pad">
+            <p style="color:var(--text-dim);font-size:12.5px;margin:0 0 12px;">Tickets completed within this many days of the entry date count as meeting SLA on the SLA &amp; KPI Report.</p>
+            <div style="display:flex;gap:8px;align-items:center;">
+              <input type="number" min="1" step="1" id="slaTargetInput" style="width:100px;padding:9px 10px;border:1px solid #ccd3d8;border-radius:5px;" value="3">
+              <span style="color:var(--text-dim);font-size:12.5px;">days</span>
+              <button class="btn accent sm" onclick="saveSlaTarget()">Save</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom:14px;">
+          <div class="card-head"><h3>Daily Cash Book — opening balance</h3></div>
+          <div class="card-pad">
+            <p style="color:var(--text-dim);font-size:12.5px;margin:0 0 12px;">The starting cash-on-hand figure the running balance is calculated from.</p>
+            <div style="display:flex;gap:8px;align-items:center;">
+              <span style="color:var(--text-dim);">₹</span>
+              <input type="number" min="0" step="0.01" id="openingBalanceInput" style="width:160px;padding:9px 10px;border:1px solid #ccd3d8;border-radius:5px;" value="0">
+              <button class="btn accent sm" onclick="saveOpeningBalance()">Save</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom:14px;">
+          <div class="card-head"><h3>Cash Book categories</h3><span class="tag">Receipt &amp; Payment</span></div>
+          <div class="card-pad">
+            <div class="grid-3" style="margin-bottom:10px;">
+              <div class="field"><label>Type</label><select id="newCatType"><option value="Payment">Payment</option><option value="Receipt">Receipt</option></select></div>
+              <div class="field"><label>Group</label><input id="newCatGroup" placeholder="e.g. B. Variable Operating Expenses"></div>
+              <div class="field"><label>Category name</label><input id="newCatName" placeholder="e.g. Courier Charges"></div>
+            </div>
+            <button class="btn accent sm" onclick="addCashCategory()">+ Add category</button>
+            <div id="cashCategoryList" style="margin-top:14px;"></div>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-bottom:14px;">
+          <div class="card" id="list_products"></div>
+          <div class="card" id="list_brands"></div>
+        </div>
+        <div class="grid-2" style="margin-bottom:14px;">
+          <div class="card" id="list_brackets"></div>
+          <div class="card" id="list_employees"></div>
+        </div>
+        <div class="card" id="list_statuses" style="margin-bottom:14px;"></div>
+        <div class="card" id="list_parts" style="margin-bottom:14px;"></div>
+
+        <div class="card admin-only">
+          <div class="card-head"><h3>User logins</h3><button class="btn sm accent" onclick="openUserForm()">+ Add user</button></div>
+          <div class="table-wrap short">
+            <table><thead><tr><th>Username</th><th>Name</th><th>Role</th><th class="center">Actions</th></tr></thead><tbody id="usersTbody"></tbody></table>
+          </div>
+        </div>
+      </div>

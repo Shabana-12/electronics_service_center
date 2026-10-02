@@ -1,0 +1,49 @@
+<div class="section" id="sec-cashbook">
+        <div class="section-head" style="justify-content:space-between;flex-wrap:wrap;gap:10px;">
+          <button class="btn accent" onclick="openCashForm()">+ New Entry</button>
+        </div>
+
+        <div class="card staff-only" style="margin-bottom:18px;">
+          <div class="card-pad" style="color:var(--text-dim);">
+            You can add and view Cash Book entries below. Amounts and balances are visible to Admin only.
+          </div>
+        </div>
+
+        <div class="admin-only">
+        <div class="kpi-row">
+          <div class="kpi ink"><div class="lbl">Opening balance</div><div class="val" id="cashKpiOpening">₹0</div><div class="sub">Set in Settings</div></div>
+          <div class="kpi"><div class="lbl">Total receipts</div><div class="val" id="cashKpiReceipt">₹0</div><div class="sub" id="cashKpiReceiptSub">—</div></div>
+          <div class="kpi red"><div class="lbl">Total payments</div><div class="val" id="cashKpiPayment">₹0</div><div class="sub" id="cashKpiPaymentSub">—</div></div>
+          <div class="kpi blue"><div class="lbl">Closing balance</div><div class="val" id="cashKpiClosing">₹0</div><div class="sub" id="cashKpiClosingSub">—</div></div>
+        </div>
+
+        <div class="grid-2" style="margin-bottom:18px;">
+          <div class="card">
+            <div class="card-head"><h3>Cash flow trend</h3><span class="tag">Receipts vs payments, by day</span></div>
+            <div class="card-pad"><div style="height:240px;"><canvas id="cashTrendChart"></canvas></div></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Top categories</h3><span class="tag">In range</span></div>
+            <div class="card-pad"><div style="height:240px;"><canvas id="cashCategoryChart"></canvas></div></div>
+          </div>
+        </div>
+        </div>
+
+        <div class="filters">
+          <div class="field"><label>From</label><input type="date" id="cashFrom"></div>
+          <div class="field"><label>To</label><input type="date" id="cashTo"></div>
+          <div class="field"><label>Type</label><select id="cashTypeFilter"></select></div>
+          <div class="field" style="min-width:220px;"><label>Search</label><input id="cashSearch" placeholder="Category, particulars, stakeholder, voucher…"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>Ledger</h3><span class="tag" id="cashCount">0</span></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Voucher #</th><th>Date</th><th>Type</th><th>Category</th><th>Particulars</th><th>Stakeholder</th><th>Mode</th><th class="num admin-only">Receipt (₹)</th><th class="num admin-only">Payment (₹)</th><th class="num admin-only">Balance (₹)</th><th>Created</th><th>Approval</th><th class="center">Actions</th></tr></thead>
+              <tbody id="cashTbody"></tbody>
+            </table>
+          </div>
+          <div id="cashbookPagination" style="display:none;justify-content:space-between;align-items:center;padding:10px 18px;border-top:1px solid #edf0f2;"></div>
+        </div>
+      </div>
+

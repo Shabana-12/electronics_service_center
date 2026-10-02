@@ -1,0 +1,21 @@
+<div class="section" id="sec-inventory">
+        <div class="section-head" style="justify-content:flex-end;">
+          <button class="btn accent" onclick="openInventoryForm()">+ New Entry</button>
+        </div>
+        <div class="filters">
+          <div class="field"><label>From</label><input type="date" id="invFrom"></div>
+          <div class="field"><label>To</label><input type="date" id="invTo"></div>
+          <div class="field"><label>Issued / sold to</label><select id="invWhoFilter"></select></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>Ledger entries</h3><span class="tag" id="inventoryCount">0</span></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Log #</th><th>Date</th><th>Debited/Sold to</th><th>Material &amp; specification</th><th class="num">Qty</th><th class="num">Rate</th><th>Type</th><th class="num">Amount</th><th>Approval</th><th class="center">Actions</th></tr></thead>
+              <tbody id="inventoryTbody"></tbody>
+            </table>
+          </div>
+          <div id="inventoryPagination" style="display:none;justify-content:space-between;align-items:center;padding:10px 18px;border-top:1px solid #edf0f2;"></div>
+          <div style="padding:10px 18px;border-top:1px solid #edf0f2;font-size:12px;color:var(--text-dim);" id="inventorySummary"></div>
+        </div>
+      </div>

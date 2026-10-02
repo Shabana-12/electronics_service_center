@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page_title }} — Electronics Service Center</title>
+<link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='img/favicon.svg') }}">
+<script src="{{ url_for('static', filename='js/vendor/xlsx.full.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/vendor/chart.umd.min.js') }}"></script>
+<link rel="stylesheet" href="{{ asset_url('css/style.css') }}">
+</head>
+<body data-page="{{ active_page }}">
+
+<div id="app">
+<div class="shell">
+<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark" aria-hidden="true"><span>ES</span></div>
+      <div><b>ELECTRONICS SERVICE</b><small>OPERATIONS CRM</small></div>
+    </div>
+    <div class="nav">
+      <a href="/dashboard" class="nav-item {{ 'active' if active_page=='dashboard' }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+        Dashboard
+      </a>
+      <div class="nav-section">CRM</div>
+      <a href="/calls" class="nav-item {{ 'active' if active_page=='calls' }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call Data
+      </a>
+      <div class="nav-section">Inventory</div>
+      <a href="/purchases" class="nav-item {{ 'active' if active_page=='purchases' }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18M3 3l1 15a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2l1-15M8 8v4M12 8v4M16 8v4"/></svg>
+        Purchase Ledger
+      </a>
+      <a href="/inventory" class="nav-item {{ 'active' if active_page=='inventory' }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8V6a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 6v12a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 18v-2"/><path d="M3.5 6.5 12 11l8.5-4.5M12 22V11"/></svg>
+        Consumption / Sales
+      </a>
+      <div class="nav-section">Finance</div>
+      <a href="/cashbook" class="nav-item {{ 'active' if active_page=='cashbook' }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M6 6v0M18 18v0"/></svg>
+        Daily Cash Book
+      </a>
+      <a href="/income-expenditure" class="nav-item admin-only {{ 'active' if active_page=='income-expenditure' }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Income &amp; Expenditure
+      </a>
+      <div class="nav-section">Tools</div>
+      <a href="/slakpi" class="nav-item {{ 'active' if active_page=='slakpi' }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 2v10l7 3"/><path d="M18 2l2 2-2 2"/></svg>
+        SLA &amp; KPI Report
+      </a>
+      <a href="/reports" class="nav-item {{ 'active' if active_page=='reports' }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 18v-3M15 18v-2"/></svg>
+        Reports
+      </a>
+      <a href="/settings" class="nav-item admin-only {{ 'active' if active_page=='settings' }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Settings
+      </a>
+    </div>
+    <div class="sidebar-foot">
+      <div class="user-chip">
+        <div class="user-avatar" id="userAvatar">—</div>
+        <div><b id="userChipName">—</b><small id="userChipRole">—</small></div>
+      </div>
+      <button class="logout-btn" id="logoutBtn">Sign out</button>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <div><h2>{{ page_title }}</h2><div class="sub">{{ page_sub }}</div></div>
+    </div>
+    <div class="content">
+{% block content %}{% endblock %}
+    </div>
+  </div>
+</div>
+</div>
+
+{% block modals %}{% endblock %}
+
+<div class="toast" id="toast"><span class="dot"></span><span class="toast-msg">Saved</span></div>
+
+<script src="{{ asset_url('js/api.js') }}"></script>
+<script src="{{ asset_url('js/common.js') }}"></script>
+<script src="{{ asset_url('js/calls.js') }}"></script>
+<script src="{{ asset_url('js/purchases.js') }}"></script>
+<script src="{{ asset_url('js/inventory.js') }}"></script>
+<script src="{{ asset_url('js/finance.js') }}"></script>
+<script src="{{ asset_url('js/dashboard.js') }}"></script>
+<script src="{{ asset_url('js/settings.js') }}"></script>
+<script src="{{ asset_url('js/reports.js') }}"></script>
+<script src="{{ asset_url('js/init.js') }}"></script>
+</body>
+</html>

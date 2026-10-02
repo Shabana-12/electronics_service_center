@@ -1,0 +1,36 @@
+<div class="modal-overlay" id="settlementModal">
+  <div class="modal">
+    <div class="modal-head"><h3>Update settlement — <span id="st_ticketLabel"></span></h3><button class="modal-close" onclick="closeSettlementForm()">✕</button></div>
+    <form id="settlementForm" onsubmit="saveSettlementForm(event)">
+      <div class="modal-body">
+        <input type="hidden" id="st_callId">
+        <div class="field">
+          <label class="req">Settlement status</label>
+          <select id="st_status" required onchange="onSettlementStatusChange()">
+            <option value="Unsettled">Unsettled</option>
+            <option value="Settled">Settled</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+        </div>
+        <div id="st_settledFields" style="display:none;">
+          <div class="grid-2">
+            <div class="field">
+              <label class="req">Cash Book voucher (Receipt)</label>
+              <select id="st_voucherNo" onchange="onSettlementVoucherChange()">
+                <option value="">— Select a Receipt voucher —</option>
+              </select>
+              <div class="hint" id="st_voucherHint"></div>
+            </div>
+            <div class="field"><label class="req">Voucher entry date</label><input type="date" id="st_voucherDate"></div>
+          </div>
+        </div>
+        <div class="field">
+          <label id="st_commentLabel">Comment</label>
+          <input id="st_comment" maxlength="50" oninput="updateSettlementCommentCount()">
+          <div class="hint"><span id="st_commentCount">0</span>/50 characters</div>
+        </div>
+      </div>
+      <div class="modal-foot"><button type="button" class="btn" onclick="closeSettlementForm()">Cancel</button><button type="submit" class="btn accent">Save</button></div>
+    </form>
+  </div>
+</div>

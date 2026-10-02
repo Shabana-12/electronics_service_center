@@ -1,0 +1,18 @@
+<div class="modal-overlay" id="userModal">
+  <div class="modal">
+    <div class="modal-head"><h3>Add user login</h3><button class="modal-close" onclick="closeUserForm()">✕</button></div>
+    <form id="newUserForm">
+      <div class="modal-body">
+        <div class="grid-2">
+          <div class="field"><label class="req">Username</label><input id="nu_username" required></div>
+          <div class="field"><label class="req">Password</label><input id="nu_password" required></div>
+        </div>
+        <div class="grid-2">
+          <div class="field"><label class="req">Full name</label><input id="nu_name" required></div>
+          <div class="field"><label class="req">Role</label><select id="nu_role"><option>Staff</option><option>Admin</option></select></div>
+        </div>
+      </div>
+      <div class="modal-foot"><button type="button" class="btn" onclick="closeUserForm()">Cancel</button><button type="submit" class="btn accent">Create user</button></div>
+    </form>
+  </div>
+</div>

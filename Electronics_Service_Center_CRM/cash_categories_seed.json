@@ -1,0 +1,110 @@
+[
+  {
+    "type": "Payment",
+    "group": "A. Fixed Operating Expenses",
+    "category": "Shop Rent",
+    "desc": "Monthly service-center rent"
+  },
+  {
+    "type": "Payment",
+    "group": "A. Fixed Operating Expenses",
+    "category": "Electricity Charges",
+    "desc": "Power, lighting and equipment usage"
+  },
+  {
+    "type": "Payment",
+    "group": "A. Fixed Operating Expenses",
+    "category": "Internet & Telephone",
+    "desc": "Broadband and communication expenses"
+  },
+  {
+    "type": "Payment",
+    "group": "A. Fixed Operating Expenses",
+    "category": "Technician Salaries",
+    "desc": "Technician payroll"
+  },
+  {
+    "type": "Payment",
+    "group": "B. Variable Operating Expenses",
+    "category": "Spare Parts Purchase",
+    "desc": "Boards, modules and replacement parts"
+  },
+  {
+    "type": "Payment",
+    "group": "B. Variable Operating Expenses",
+    "category": "Consumables",
+    "desc": "Solder, flux, cleaners and workshop consumables"
+  },
+  {
+    "type": "Payment",
+    "group": "B. Variable Operating Expenses",
+    "category": "Transportation / Fuel",
+    "desc": "Field service, pickup and delivery"
+  },
+  {
+    "type": "Payment",
+    "group": "B. Variable Operating Expenses",
+    "category": "Bank & Payment Charges",
+    "desc": "Banking, UPI and payment fees"
+  },
+  {
+    "type": "Payment",
+    "group": "C. Repairs & Maintenance",
+    "category": "Equipment Servicing",
+    "desc": "Workshop tool and equipment maintenance"
+  },
+  {
+    "type": "Receipt",
+    "group": "A. Service Income",
+    "category": "Repair Charges",
+    "desc": "Electronics repair labour charges"
+  },
+  {
+    "type": "Receipt",
+    "group": "A. Service Income",
+    "category": "Installation Charges",
+    "desc": "Installation, wall mounting and setup"
+  },
+  {
+    "type": "Receipt",
+    "group": "A. Service Income",
+    "category": "Service / Visit Charges",
+    "desc": "Home visit and inspection charges"
+  },
+  {
+    "type": "Receipt",
+    "group": "A. Service Income",
+    "category": "Diagnosis Charges",
+    "desc": "Fault diagnosis without repair"
+  },
+  {
+    "type": "Receipt",
+    "group": "B. Parts & Accessories Income",
+    "category": "Spare Parts Sales",
+    "desc": "Replacement parts sold to customers"
+  },
+  {
+    "type": "Receipt",
+    "group": "B. Parts & Accessories Income",
+    "category": "Accessories Sales",
+    "desc": "Remotes, cables, brackets and accessories"
+  },
+  {
+    "type": "Receipt",
+    "group": "C. Contract & Other Income",
+    "category": "Warranty Service Receipts",
+    "desc": "Brand or third-party service settlement"
+  },
+  {
+    "type": "Receipt",
+    "group": "C. Contract & Other Income",
+    "category": "AMC / Annual Service",
+    "desc": "Maintenance contract receipts"
+  },
+  {
+    "type": "Receipt",
+    "group": "C. Contract & Other Income",
+    "category": "Other Income",
+    "desc": "Other operating income"
+  }
+]

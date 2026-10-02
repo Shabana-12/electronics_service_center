@@ -1,0 +1,23 @@
+<div class="section" id="sec-slakpi">
+        <div class="filters">
+          <div class="field"><label>From</label><input type="date" id="slaFrom"></div>
+          <div class="field"><label>To</label><input type="date" id="slaTo"></div>
+          <div class="field"><label>&nbsp;</label><button class="btn solid" onclick="downloadSlaKpiCSV()">⬇ Download as CSV</button></div>
+        </div>
+        <div class="kpi-row" style="grid-template-columns:repeat(5,1fr);">
+          <div class="kpi ink"><div class="lbl">Tickets in range</div><div class="val" id="slaKpiTotal">0</div><div class="sub">SLA target: <span id="slaTargetDisplay">3</span> days</div></div>
+          <div class="kpi"><div class="lbl">Completed</div><div class="val" id="slaKpiCompleted">0</div><div class="sub" id="slaKpiCompletedSub">—</div></div>
+          <div class="kpi blue"><div class="lbl">Avg turnaround</div><div class="val" id="slaKpiAvgTurn">—</div><div class="sub">Assigned → completed</div></div>
+          <div class="kpi amber"><div class="lbl">SLA compliance</div><div class="val" id="slaKpiCompliance">0%</div><div class="sub">Completed within target</div></div>
+          <div class="kpi red"><div class="lbl">SLA breaches</div><div class="val" id="slaKpiBreach">0</div><div class="sub">Completed late</div></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>By technician</h3></div>
+          <div class="table-wrap">
+            <table class="pivot">
+              <thead><tr><th>Technician</th><th class="num">Assigned</th><th class="num">Completed</th><th class="num">Pending</th><th class="num">Cancelled</th><th class="num">Completion %</th><th class="num">Avg turnaround (d)</th><th class="num">SLA compliance</th><th class="num">Breaches</th></tr></thead>
+              <tbody id="slaKpiBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>

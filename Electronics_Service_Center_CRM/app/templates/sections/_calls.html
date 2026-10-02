@@ -1,0 +1,23 @@
+<div class="section" id="sec-calls">
+        <div class="section-head" style="justify-content:flex-end;">
+          <button class="btn accent" onclick="openCallForm()">+ New Call</button>
+        </div>
+        <div class="filters">
+          <div class="field"><label>From</label><input type="date" id="callFrom"></div>
+          <div class="field"><label>To</label><input type="date" id="callTo"></div>
+          <div class="field"><label>Technician</label><select id="callTechFilter"></select></div>
+          <div class="field"><label>Status</label><select id="callStatusFilter"></select></div>
+          <div class="field"><label>Approval / Settlement</label><select id="callApprovalFilter"></select></div>
+          <div class="field" style="min-width:220px;"><label>Search</label><input id="callSearch" placeholder="Customer, mobile, ticket, brand…"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>Tickets</h3><span class="tag" id="callsCount">0</span></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Log #</th><th>Ticket #</th><th>Date</th><th>Customer</th><th>Product</th><th>Issue</th><th>Technician</th><th>Status</th><th>Photos</th><th class="num">TAT (days)</th><th class="admin-only">Source</th><th class="num">Bill</th><th class="num admin-only">Material Cost</th><th class="num admin-only">Net Amount</th><th>Approval</th><th class="admin-only">Settlement</th><th class="center">Actions</th></tr></thead>
+              <tbody id="callsTbody"></tbody>
+            </table>
+          </div>
+          <div id="callsPagination" style="display:none;justify-content:space-between;align-items:center;padding:10px 18px;border-top:1px solid #edf0f2;"></div>
+        </div>
+      </div>
